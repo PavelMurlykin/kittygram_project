@@ -1,21 +1,14 @@
-# urls.py
-from rest_framework.routers import SimpleRouter
+# kittygram_plus/urls.py
+from rest_framework.routers import DefaultRouter
 
 from django.urls import include, path
 
-from cats.views import CatViewSet
+from cats.views import CatViewSet, OwnerViewSet
 
-# Создаётся роутер
-router = SimpleRouter()
-# Вызываем метод .register с нужными параметрами
+router = DefaultRouter()
 router.register('cats', CatViewSet)
-# В роутере можно зарегистрировать любое количество пар "URL, viewset":
-# например
-# router.register('owners', OwnerViewSet)
-# Но нам это пока не нужно
+router.register('owners', OwnerViewSet)
 
 urlpatterns = [
-    # Все зарегистрированные в router пути доступны в router.urls
-    # Включим их в головной urls.py
     path('', include(router.urls)),
 ]
