@@ -21,6 +21,9 @@ class LightCatViewSet(CreateRetrieveViewSet):
 
 
 class CatViewSet(viewsets.ModelViewSet):
+    queryset = Cat.objects.all()
+    serializer_class = CatSerializer
+
     def list(self, request):
         queryset = Cat.objects.all()
         serializer = CatSerializer(queryset, many=True)
