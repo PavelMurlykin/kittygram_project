@@ -1,8 +1,16 @@
 import datetime as dt
+# from djoser.serializers import UserSerializer
 from rest_framework import serializers
 import webcolors
 
 from .models import Cat, Owner, Achievement, AchievementCat, CHOICES
+
+
+# class CustomUserSerializer(UserSerializer):
+
+#     class Meta:
+#         model = User
+#         fields = ('email', 'id', 'username', 'first_name', 'last_name')
 
 
 class Hex2NameColor(serializers.Field):
